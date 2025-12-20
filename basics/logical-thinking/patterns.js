@@ -128,6 +128,26 @@ function pattern11(n) {
   }
 }
 
+function pattern12(n) {
+  for (let i = 1; i <= n; i++) {
+    let row = "";
+
+    for (let j = 1; j <= i; j++) {
+      row += j;
+    }
+
+    for (let k = 1; k <= 2 * (n - i); k++) {
+      row += "*";
+    }
+
+    for (let l = i; l >= 1; l--) {
+      row += l;
+    }
+
+    console.log(row);
+  }
+}
+
 function pattern13(n) {
   let num = 1;
   for (let i = 0; i < n; i++) {
@@ -169,6 +189,32 @@ function pattern16(n) {
     for (let j = 0; j <= i; j++) {
       row += alphabet[i];
     }
+    console.log(row);
+  }
+}
+
+function pattern17(n) {
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  for (let i = 0; i < n; i++) {
+    let row = "";
+
+    for (let j = 0; j < n - i - 1; j++) {
+      row += "*";
+    }
+
+    let curr = 0;
+    const breakPoint = Math.floor((2 * i + 1) / 2);
+
+    for (let k = 0; k < 2 * i + 1; k++) {
+      row += alphabet[curr];
+      k < breakPoint ? curr++ : curr--;
+    }
+
+    for (let j = 0; j < n - i - 1; j++) {
+      row += "*";
+    }
+
     console.log(row);
   }
 }
@@ -237,3 +283,12 @@ function pattern21(n) {
   }
 }
 
+function pattern22(n) {
+  for (let i = 0; i < 2 * n - 1; i++) {
+    let row = "";
+    for (let j = 0; j < 2 * n - 1; j++) {
+      row += n - Math.min(i, j, 2 * n - 2 - i, 2 * n - 2 - j);
+    }
+    console.log(row);
+  }
+}
